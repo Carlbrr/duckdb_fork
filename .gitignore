@@ -355,3 +355,10 @@ extension_external
 
 test/sql/pragma/output.json
 tools/pythonpkg/duckdb_build/
+
+
+# Ignore SSB data files
+benchmark/SSB/data/**/*.tbl
+
+# Ignore the ssb-dbgen folder
+ssb-dbgen/
