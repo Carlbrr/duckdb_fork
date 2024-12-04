@@ -1,0 +1,10 @@
+name SSB Query 4_1 (SF10)
+group SSB
+
+cache ssb.duckdb
+
+load benchmark/SSB/load_sf10.sql
+
+run benchmark/SSB/queries/q4_1.sql
+
+result benchmark/SSB/answers/sf10/q4_1.csv
