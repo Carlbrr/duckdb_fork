@@ -2,7 +2,7 @@
 -- follows https://clickhouse.com/docs/en/getting-started/example-datasets/star-schema
 -- but with adjusted data types mapped from ClickHouse -> DuckDB
 
-CREATE OR REPLACE TABLE customer (
+CREATE TABLE customer (
     c_custkey INTEGER,
     c_name VARCHAR,
     c_address VARCHAR,
@@ -13,13 +13,13 @@ CREATE OR REPLACE TABLE customer (
     c_mktsegment VARCHAR
 );
 
-CREATE OR REPLACE TABLE lineorder (
+CREATE TABLE lineorder (
     lo_orderkey INTEGER,
     lo_linenumber INTEGER,
     lo_custkey INTEGER,
     lo_partkey INTEGER,
     lo_suppkey INTEGER,
-    lo_orderdate DATE, -- Changed from INTEGER
+    lo_orderdate INTEGER,
     lo_orderpriority VARCHAR,
     lo_shippriority VARCHAR,
     lo_quantity INTEGER,
@@ -29,11 +29,11 @@ CREATE OR REPLACE TABLE lineorder (
     lo_revenue DOUBLE,
     lo_supplycost DOUBLE,
     lo_tax DOUBLE,
-    lo_commitdate DATE, -- Changed from Integer
+    lo_commitdate INTEGER,
     lo_shipmode VARCHAR
 );
 
-CREATE OR REPLACE TABLE part (
+CREATE TABLE part (
     p_partkey INTEGER,
     p_name VARCHAR,
     p_mfgr VARCHAR,
@@ -45,7 +45,7 @@ CREATE OR REPLACE TABLE part (
     p_container VARCHAR
 );
 
-CREATE OR REPLACE TABLE supplier (
+CREATE TABLE supplier (
     s_suppkey INTEGER,
     s_name VARCHAR,
     s_address VARCHAR,
@@ -55,8 +55,8 @@ CREATE OR REPLACE TABLE supplier (
     s_phone VARCHAR
 );
 
-CREATE OR REPLACE TABLE date (
-    d_datekey DATE, -- changed this
+CREATE TABLE date (
+    d_datekey INTEGER,
     d_date VARCHAR,
     d_dayofweek VARCHAR,
     d_month VARCHAR,
@@ -78,8 +78,8 @@ CREATE OR REPLACE TABLE date (
 -- Load Data
 
 -- this is only sf1 atm
-COPY customer FROM 'benchmark/SSB/data/sf1/customer.tbl' (DELIMITER ',', QUOTE '"', NULL 'NULL', HEADER false);
-COPY lineorder FROM 'benchmark/SSB/data/sf1/lineorder.tbl' (DELIMITER ',', QUOTE '"', NULL 'NULL', HEADER false);
-COPY part FROM 'benchmark/SSB/data/sf1/part.tbl' (DELIMITER ',', QUOTE '"', NULL 'NULL', HEADER false);
-COPY supplier FROM 'benchmark/SSB/data/sf1/supplier.tbl' (DELIMITER ',', QUOTE '"', NULL 'NULL', HEADER false);
-COPY date FROM 'benchmark/SSB/data/sf1/date.tbl' (DELIMITER ',', QUOTE '"', NULL 'NULL', HEADER false);
+COPY customer FROM 'benchmark/SSB/data/sf100/customer.tbl' (DELIMITER '|', NULL 'NULL');
+COPY lineorder FROM 'benchmark/SSB/data/sf100/lineorder.tbl' (DELIMITER '|', NULL 'NULL');
+COPY part FROM 'benchmark/SSB/data/sf100/part.tbl' (DELIMITER '|', NULL 'NULL');
+COPY supplier FROM 'benchmark/SSB/data/sf100/supplier.tbl' (DELIMITER '|', NULL 'NULL');
+COPY date FROM 'benchmark/SSB/data/sf100/date.tbl' (DELIMITER '|', NULL 'NULL');
