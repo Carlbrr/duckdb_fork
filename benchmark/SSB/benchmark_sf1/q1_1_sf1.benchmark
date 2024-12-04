@@ -7,4 +7,4 @@ load benchmark/SSB/queries/load.sql
 
 run benchmark/SSB/queries/q1_1.sql
 
-result benchmark/SSB/answers/sf1/q1_1.csv
+result benchmark/SSB/answers/sf1/q1_1.csv #because we cache, i want to check the result to see whether we use the newly loaded datasets or the cached ones from a lower sf
