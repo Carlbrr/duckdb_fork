@@ -358,7 +358,9 @@ tools/pythonpkg/duckdb_build/
 
 
 # Ignore SSB data files
-benchmark/SSB/data/**/*.tbl
+benchmark/SSB/data/sf1/*.tbl
+benchmark/SSB/data/sf10/*.tbl
+benchmark/SSB/data/sf100/*.tbl
 
 # Ignore the ssb-dbgen folder
 ssb-dbgen/

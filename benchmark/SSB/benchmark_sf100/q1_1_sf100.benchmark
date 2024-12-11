@@ -1,9 +1,9 @@
 name SSB Query 1_1 (SF100)
 group SSB
 
-cache ssb.duckdb
+cache ssb_sf100_cache.duckdb
 
-load benchmark/SSB/load_sf100.sql
+load benchmark/SSB/queries/load_sf100.sql
 
 run benchmark/SSB/queries/q1_1.sql
 
