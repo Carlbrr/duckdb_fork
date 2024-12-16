@@ -25,10 +25,10 @@ Contains all SQL files:
 To run the benchmark, the project must be cloned and build with CMake.
 
 Generated SSB files are too large for Git, as such, navigate to the SSB folder and run:
-´´´console
+```console
 $ . data_gen.sh
 $ build/release/benchmark/benchmark_runner benchmark/SSB/benchmark_sf1/q1_1_sf1.benchmark
-´´´
+```
 
 **DO NOTE:**
 The script will clone the dbgen generator, https://github.itu.dk/pito/ads2024-ssb-dbgen, if not already cloned.
